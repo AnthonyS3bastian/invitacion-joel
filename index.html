@@ -1,0 +1,296 @@
+<!doctype html>
+
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Invitación Sebas</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --green:#6ed3b2;
+  --red:#ff2e4d;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+
+body{
+  margin:0;
+  font-family:"Nunito",system-ui;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0,255,200,.25), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(0,180,255,.25), transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(0,0,0,.6), transparent 55%),
+    linear-gradient(180deg, #021114, #041f24 60%, #000000);
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+}
+
+/* SOBRE */
+.stage{
+  position:relative;
+  width:92vw;
+  max-width:580px;
+  height:360px;
+}
+.envelope{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,#6ed3b2,#3aa6c4);
+  border-radius:18px;
+  box-shadow:0 25px 40px rgba(0,0,0,.45);
+}
+.toTag{
+  position:absolute;
+  bottom:16px;
+  left:18px;
+  font-weight:900;
+  background:#ffffffaa;
+  padding:8px 12px;
+  border-radius:12px;
+  color:#000;
+}
+
+/* BOTÓN IMAGEN */
+.seal{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:110px;
+  height:110px;
+  border-radius:50%;
+  overflow:hidden;
+  cursor:pointer;
+  box-shadow:0 12px 25px rgba(0,0,0,.4);
+  border:4px solid #fff;
+}
+.seal img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* CARTA */
+.letter{
+  position:fixed;
+  left:50%;
+  top:50%;
+  width:min(520px,92vw);
+  height:min(620px,78vh);
+  border-radius:16px;
+  transform:translate(-50%,40%);
+  opacity:0;
+  z-index:200;
+  box-shadow:0 30px 60px rgba(0,0,0,.55);
+  overflow:hidden;
+
+  background:
+    radial-gradient(circle at 20% 15%, rgba(0,255,200,.15), transparent 45%),
+    radial-gradient(circle at 80% 30%, rgba(0,180,255,.15), transparent 45%),
+    linear-gradient(180deg,#03191c,#021114 60%,#000);
+}
+.letter.open{
+  animation:open 1.2s forwards;
+}
+@keyframes open{
+  to{opacity:1;transform:translate(-50%,-50%)}
+}
+
+/* SCROLL */
+.letterScroll{
+  padding:24px;
+  padding-bottom:100px; /* 🔥 evita que tape */
+  color:#fff;
+  overflow-y:auto;
+  height:100%;
+}
+
+/* NEON ROJO */
+@keyframes neonRed{
+  0%,100%{
+    opacity:1;
+    text-shadow:
+      0 0 6px var(--red),
+      0 0 18px var(--red),
+      0 0 35px var(--red);
+  }
+  50%{opacity:.4;}
+}
+
+/* NEON AQUA */
+@keyframes neonBlue{
+  0%,100%{opacity:.4;}
+  50%{
+    opacity:1;
+    text-shadow:
+      0 0 6px #5eeaff,
+      0 0 18px #5eeaff,
+      0 0 35px #5eeaff;
+  }
+}
+
+/* TEXTOS */
+.neon-pink{
+  color:var(--red);
+  font-family:"Baloo 2";
+  font-weight:900;
+  font-size:24px;
+  text-transform:uppercase;
+  animation:neonRed 3s ease-in-out infinite;
+}
+
+.neon-blue{
+  color:#5eeaff;
+  font-weight:800;
+  font-size:16px;
+  margin-top:6px;
+  margin-bottom:14px;
+  animation:neonBlue 3s ease-in-out infinite;
+}
+
+/* CONTENIDO */
+.card,.footer{
+  text-shadow:
+    0 0 4px #fff,
+    0 0 10px #00ffd5,
+    0 0 18px #00bfff;
+}
+
+.card{
+  background:#00000055;
+  border-radius:12px;
+  padding:14px;
+  margin:12px 0;
+}
+.card b{
+  display:block;
+  margin-bottom:6px;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:8px;
+  padding:10px 14px;
+  background:var(--green);
+  color:#000;
+  border-radius:10px;
+  font-weight:800;
+  text-decoration:none;
+}
+
+.footer{
+  margin-top:18px;
+  font-weight:900;
+}
+
+/* 🔥 BOTÓN MUTE CENTRADO ABAJO */
+.muteBtn{
+  position:absolute;
+  left:50%;
+  bottom:14px;
+  transform:translateX(-50%);
+  z-index:300;
+
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  border:none;
+  background:#00000088;
+  color:#fff;
+  font-size:20px;
+  cursor:pointer;
+  backdrop-filter: blur(6px);
+  opacity:.8;
+}
+.muteBtn:hover{
+  opacity:1;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="stage">
+  <div class="envelope">
+    <div class="toTag">Para: Ti</div>
+
+
+<div class="seal" id="seal">
+  <img src="roblox.png">
+</div>
+
+
+  </div>
+</div>
+
+<div class="letter" id="letter">
+  <button class="muteBtn" id="muteBtn">🔊</button>
+
+  <div class="letterScroll">
+
+<div class="neon-pink">
+  🍷 ESTÁS INVITADO AL CUMPLE DE JOEL POR SUS 20 YEARS 🍷
+</div>
+
+<div class="neon-blue">
+  Confirma Asistencia go o no go 😄
+</div>
+
+<div class="card">
+  <b>📅 Fecha</b>
+  Sábado 25 de abril del 2026
+</div>
+
+<div class="card">
+  <b>🕗 Hora</b>
+  8:00 pm
+</div>
+
+<div class="card">
+  <b>📍 Lugar</b>
+  "VINTAGE" Jr Constitución 433<br>
+  <a class="btn" id="mapsBtn" target="_blank">Ver en Google Maps</a>
+</div>
+
+<div class="card">
+  <b>👕 Dress code</b>
+  Nada
+</div>
+
+<div class="footer">
+  No faltes 👀🔥<br>
+  La fiesta acaba hasta que yo muera 🍹🥴
+</div>
+
+
+  </div>
+</div>
+
+<audio id="bgm" src="musica.mp3" loop></audio>
+
+<script>
+document.getElementById("mapsBtn").href =
+"https://maps.app.goo.gl/nirncqGURjuzupn3A";
+
+const bgm=document.getElementById("bgm");
+
+document.getElementById("muteBtn").onclick=()=>{
+  bgm.muted=!bgm.muted;
+};
+
+document.getElementById("seal").onclick=()=>{
+  document.getElementById("letter").classList.add("open");
+  bgm.play();
+};
+</script>
+
+</body>
+</html>
