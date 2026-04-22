@@ -1,10 +1,9 @@
 <!doctype html>
-
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Invitación Sebas</title>
+<title>🍷 Cumple de Joel - Estás Invitado 🎉</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -106,7 +105,7 @@ body{
 /* SCROLL */
 .letterScroll{
   padding:24px;
-  padding-bottom:100px; /* 🔥 evita que tape */
+  padding-bottom:100px;
   color:#fff;
   overflow-y:auto;
   height:100%;
@@ -143,16 +142,16 @@ body{
   font-weight:900;
   font-size:24px;
   text-transform:uppercase;
-  animation:neonRed 3s ease-in-out infinite;
+  animation:neonRed 3.5s ease-in-out infinite;
 }
 
 .neon-blue{
-  color:#5eeaff;
+  color:#7ef5ff;
   font-weight:800;
   font-size:16px;
   margin-top:6px;
   margin-bottom:14px;
-  animation:neonBlue 3s ease-in-out infinite;
+  animation:neonBlue 3.5s ease-in-out infinite;
 }
 
 /* CONTENIDO */
@@ -190,14 +189,13 @@ body{
   font-weight:900;
 }
 
-/* 🔥 BOTÓN MUTE CENTRADO ABAJO */
+/* BOTÓN MUTE */
 .muteBtn{
   position:absolute;
   left:50%;
   bottom:14px;
   transform:translateX(-50%);
   z-index:300;
-
   width:48px;
   height:48px;
   border-radius:50%;
@@ -222,11 +220,9 @@ body{
   <div class="envelope">
     <div class="toTag">Para: Ti</div>
 
-
-<div class="seal" id="seal">
-  <img src="roblox.png">
-</div>
-
+    <div class="seal" id="seal">
+      <img src="roblox.png">
+    </div>
 
   </div>
 </div>
@@ -236,40 +232,39 @@ body{
 
   <div class="letterScroll">
 
-<div class="neon-pink">
-  🍷 ESTÁS INVITADO AL CUMPLE DE JOEL POR SUS 20 YEARS 🍷
-</div>
+    <div class="neon-pink">
+      🍷 ESTÁS INVITADO AL CUMPLE DE JOEL POR SUS 20 YEARS 🍷
+    </div>
 
-<div class="neon-blue">
-  Confirma Asistencia go o no go 😄
-</div>
+    <div class="neon-blue">
+      Confirma Asistencia go o no go 😄
+    </div>
 
-<div class="card">
-  <b>📅 Fecha</b>
-  Sábado 25 de abril del 2026
-</div>
+    <div class="card">
+      <b>📅 Fecha</b>
+      Sábado 25 de abril del 2026
+    </div>
 
-<div class="card">
-  <b>🕗 Hora</b>
-  8:00 pm
-</div>
+    <div class="card">
+      <b>🕗 Hora</b>
+      8:00 pm
+    </div>
 
-<div class="card">
-  <b>📍 Lugar</b>
-  "VINTAGE" Jr Constitución 433<br>
-  <a class="btn" id="mapsBtn" target="_blank">Ver en Google Maps</a>
-</div>
+    <div class="card">
+      <b>📍 Lugar</b>
+      "VINTAGE" Jr Constitución 433<br>
+      <a class="btn" id="mapsBtn" target="_blank">Ver en Google Maps</a>
+    </div>
 
-<div class="card">
-  <b>👕 Dress code</b>
-  Nada
-</div>
+    <div class="card">
+      <b>👕 Dress code</b>
+      Nada
+    </div>
 
-<div class="footer">
-  No faltes 👀🔥<br>
-  La fiesta acaba hasta que yo muera 🍹🥴
-</div>
-
+    <div class="footer">
+      No faltes 👀🔥<br>
+      La fiesta acaba hasta que yo muera 🍹🥴
+    </div>
 
   </div>
 </div>
@@ -280,15 +275,16 @@ body{
 document.getElementById("mapsBtn").href =
 "https://maps.app.goo.gl/nirncqGURjuzupn3A";
 
-const bgm=document.getElementById("bgm");
+const bgm = document.getElementById("bgm");
+bgm.volume = 0.35; // 🔥 volumen más suave
 
-document.getElementById("muteBtn").onclick=()=>{
-  bgm.muted=!bgm.muted;
+document.getElementById("muteBtn").onclick = ()=>{
+  bgm.muted = !bgm.muted;
 };
 
-document.getElementById("seal").onclick=()=>{
+document.getElementById("seal").onclick = ()=>{
   document.getElementById("letter").classList.add("open");
-  bgm.play();
+  bgm.play().catch(()=>{});
 };
 </script>
 
